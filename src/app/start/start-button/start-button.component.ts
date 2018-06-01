@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlayService } from '../../shared/service/play.service';
+
+/**
+ * スタートボタンコンポーネント
+ */
 @Component({
   selector: 'gsa-start-button',
   templateUrl: './start-button.component.html',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private playService: PlayService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * スタートボタンクリック
+   */
+  public start() {
+    this.playService.start();
+  }
 }
