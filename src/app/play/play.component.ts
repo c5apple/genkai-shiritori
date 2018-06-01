@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * プレイ画面
+ */
 @Component({
   selector: 'gsa-play',
   templateUrl: './play.component.html',
