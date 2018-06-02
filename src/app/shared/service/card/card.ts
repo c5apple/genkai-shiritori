@@ -24,3 +24,31 @@ export enum SuitEnum {
   /** クラブ */
   club = 4,
 }
+
+/**
+ * トランプマーク
+ */
+export class SuitStrEnum {
+  /** スペード */
+  public static spade = 's';
+  /** ハート */
+  public static heart = 'h';
+  /** ダイアモンド */
+  public static diamond = 'd';
+  /** クラブ */
+  public static club = 'c';
+
+  public static text(suit: SuitEnum): string {
+    switch (suit) {
+      case SuitEnum.spade:
+        return SuitStrEnum.spade;
+      case SuitEnum.heart:
+        return SuitStrEnum.heart;
+      case SuitEnum.diamond:
+        return SuitStrEnum.diamond;
+      case SuitEnum.club:
+        return SuitStrEnum.club;
+    }
+    return '';
+  }
+}

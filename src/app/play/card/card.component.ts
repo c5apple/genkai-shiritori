@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardService, Card } from '../../shared/service';
+import { CardService, Card, SuitStrEnum } from '../../shared/service';
 
 /**
  * カードコンポーネント
@@ -23,4 +23,13 @@ export class CardComponent implements OnInit {
     });
   }
 
+  /**
+   * トランプ画像パスを取得する
+   */
+  public getImgSrc(): string {
+    if (!this.card) {
+      return '';
+    }
+    return `/assets/img/trump/gif/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.number).slice(-2)}.gif`;
+  }
 }
