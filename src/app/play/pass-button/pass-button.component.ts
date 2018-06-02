@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardService } from '../../shared/service';
+import { Subscription } from 'rxjs';
+import { Card, CardService } from '../../shared/service';
 
 /**
  * パスボタンコンポーネント
@@ -14,11 +15,20 @@ export class PassButtonComponent implements OnInit {
   /** パスした回数 */
   passCount: number;
 
+  /** カード */
+  card: Card;
+  cardBehavior: Subscription;
+
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
     // パス回数初期化
     this.passCount = 0;
+
+    // カード変更検知
+    this.cardBehavior = this.cardService.cardBehavior.subscribe(card => {
+      this.card = card;
+    });
   }
 
   /**

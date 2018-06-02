@@ -21,5 +21,6 @@ export class TurnButtonComponent implements OnInit {
    */
   public turn() {
     this.cardService.drowCard();
+    this.cardService.discardCount = this.cardService.discardCount + 1;
   }
 }

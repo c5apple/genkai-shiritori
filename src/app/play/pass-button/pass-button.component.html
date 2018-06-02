@@ -1,1 +1,1 @@
-<button (click)="pass()" [disabled]="passCount > 0">PASS</button>
+<button (click)="pass()" [disabled]="passCount > 0 || !card">PASS</button>

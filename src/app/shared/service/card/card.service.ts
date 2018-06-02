@@ -21,6 +21,12 @@ export class CardService {
   /** カード変更検知 */
   public cardBehavior = new BehaviorSubject<Card>(null);
 
+  /** 捨て札枚数 */
+  private _discardCount: number = 0;
+
+  /** 捨て札変更検知 */
+  public discardCountBehavior = new BehaviorSubject<number>(0);
+
   constructor() {
   }
 
@@ -32,7 +38,7 @@ export class CardService {
   }
 
   /**
-   * 最小数字を取得する
+   * 最小数字を設定する
    */
   set minNumber(number: number) {
     this._minNumber = number;
@@ -46,7 +52,7 @@ export class CardService {
   }
 
   /**
-   * 最大数字を取得する
+   * 最大数字を設定する
    */
   set maxNumber(number: number) {
     this._maxNumber = number;
@@ -94,5 +100,20 @@ export class CardService {
    */
   public setCard(card: Card): void {
     this.cardBehavior.next(card);
+  }
+
+  /**
+   * 捨て札枚数を取得する
+   */
+  get discardCount(): number {
+    return this._discardCount;
+  }
+
+  /**
+   * 捨て札枚数を設定する
+   */
+  set discardCount(number: number) {
+    this._discardCount = number;
+    this.discardCountBehavior.next(number);
   }
 }
