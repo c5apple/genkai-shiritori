@@ -6,6 +6,7 @@ import { PlayModule } from './play/play.module';
 import { StartModule } from './start/start.module';
 
 import { PlayService } from './shared/service/play.service';
+import { TimerService } from './shared/service/timer.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { PlayService } from './shared/service/play.service';
     PlayModule,
     StartModule
   ],
-  providers: [PlayService],
+  providers: [PlayService, TimerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
