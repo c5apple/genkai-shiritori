@@ -11,9 +11,14 @@ import { CardService } from '../../shared/service';
 })
 export class PassButtonComponent implements OnInit {
 
+  /** パスした回数 */
+  passCount: number;
+
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
+    // パス回数初期化
+    this.passCount = 0;
   }
 
   /**
@@ -21,5 +26,6 @@ export class PassButtonComponent implements OnInit {
    */
   public pass() {
     this.cardService.drowCard();
+    this.passCount++;
   }
 }
