@@ -8,6 +8,8 @@ import { TimerComponent } from './timer/timer.component';
 import { TrashComponent } from './trash/trash.component';
 import { TurnButtonComponent } from './turn-button/turn-button.component';
 
+import { CardService, TimerService } from '../shared/service';
+
 @NgModule({
   imports: [
     CommonModule
@@ -22,6 +24,10 @@ import { TurnButtonComponent } from './turn-button/turn-button.component';
     TimerComponent,
     TrashComponent,
     TurnButtonComponent
+  ],
+  providers: [
+    CardService,
+    TimerService
   ]
 })
 export class PlayModule { }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../../shared/service';
 
+/**
+ * パスボタンコンポーネント
+ */
 @Component({
   selector: 'gsa-pass-button',
   templateUrl: './pass-button.component.html',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * パスボタンクリック
+   */
+  public pass() {
+    this.cardService.drowCard();
+  }
 }

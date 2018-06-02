@@ -39,7 +39,15 @@ export class TimerComponent implements OnInit {
    * タイマー開始
    */
   public start() {
-    this.timer = this.timerService.getTimer().subscribe(time => this.time--);
+    this.timer = this.timerService.getTimer().subscribe(time => {
+      // カウントダウン
+      this.time--;
+
+      // 終了
+      if (this.time === 0) {
+        this.stop();
+      }
+    });
   }
 
   /**

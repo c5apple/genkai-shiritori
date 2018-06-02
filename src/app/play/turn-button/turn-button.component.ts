@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../../shared/service';
 
+/**
+ * 次へボタンコンポーネント
+ */
 @Component({
   selector: 'gsa-turn-button',
   templateUrl: './turn-button.component.html',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TurnButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
   }
 
+  /**
+   * 次へボタンクリック
+   */
+  public turn() {
+    this.cardService.drowCard();
+  }
 }
