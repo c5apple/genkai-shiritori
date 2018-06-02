@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../shared/service';
 
 /**
  * プレイ画面
@@ -10,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
+    // 山札初期化
+    this.cardService.shuffle();
   }
 
 }

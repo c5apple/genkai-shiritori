@@ -22,8 +22,6 @@ export class CardService {
   public cardBehavior = new BehaviorSubject<Card>(null);
 
   constructor() {
-    // 山札初期化
-    this.shuffle();
   }
 
   /**
@@ -89,5 +87,12 @@ export class CardService {
     const card = this._deck.shift();
     this.cardBehavior.next(card);
     return card;
+  }
+
+  /**
+   * カードセット
+   */
+  public setCard(card: Card): void {
+    this.cardBehavior.next(card);
   }
 }

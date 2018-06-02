@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CardService, Card, SuitStrEnum } from '../../shared/service';
 
 /**
@@ -9,18 +10,25 @@ import { CardService, Card, SuitStrEnum } from '../../shared/service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnDestroy {
 
   /** カードクラス */
   card: Card;
+  cardBehavior: Subscription;
 
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
     // カード変更検知
-    this.cardService.cardBehavior.subscribe(card => {
+    this.cardBehavior = this.cardService.cardBehavior.subscribe(card => {
       this.card = card;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.card = null;
+    this.cardBehavior.unsubscribe();
+    this.cardService.setCard(null);
   }
 
   /**
