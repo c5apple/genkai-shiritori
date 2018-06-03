@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "gsa",
       "styles": [
+        "../node_modules/animate.css/animate.min.css",
         "styles.scss"
       ],
       "scripts": [],

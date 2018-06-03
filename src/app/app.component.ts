@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private playService: PlayService) { }
 
   /** 開始状態 */
-  private isStarted = false;
+  isStarted = false;
 
   ngOnInit() {
     // 開始状態検知
