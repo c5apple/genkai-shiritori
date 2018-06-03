@@ -1,3 +1,3 @@
-<p *ngIf="card" >
-  <img src="{{getImgSrc()}}" width="200" height="300">
+<p *ngIf="card" class="animated slideInRight">
+  <img alt="{{getImgAlt()}}" src="{{getImgSrc()}}" width="200" height="300" [ngClass]="animatedClass" (load)="onLoadImage($event)">
 </p>
