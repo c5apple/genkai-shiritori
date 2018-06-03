@@ -6,7 +6,7 @@ import { PlayService } from './shared/service/play.service';
  * アプリコンポーネント
  */
 @Component({
-  selector: 'app-root',
+  selector: 'gsa-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

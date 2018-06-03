@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CardService } from '../../shared/service';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * 捨て札コンポーネント
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class TrashComponent implements OnInit, OnDestroy {
 
   /** 捨て札枚数 */
-  discardCount: number = 0;
+  discardCount = 0;
   discardCountBehavior: Subscription;
 
   constructor(private cardService: CardService) { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Card, SuitEnum } from './card';
 
@@ -10,10 +10,10 @@ import { Card, SuitEnum } from './card';
 export class CardService {
 
   /** 最小数字 */
-  private _minNumber: number = 2;
+  private _minNumber = 2;
 
   /** 最大数字 */
-  private _maxNumber: number = 11;
+  private _maxNumber = 11;
 
   /** 山札 */
   private _deck: Card[] = [];
@@ -22,7 +22,7 @@ export class CardService {
   public cardBehavior = new BehaviorSubject<Card>(null);
 
   /** 捨て札枚数 */
-  private _discardCount: number = 0;
+  private _discardCount = 0;
 
   /** 捨て札変更検知 */
   public discardCountBehavior = new BehaviorSubject<number>(0);
@@ -70,11 +70,11 @@ export class CardService {
    */
   public shuffle(): void {
     const deck = [];
-    for (let i = this._minNumber; i < this._maxNumber; i++) {
-      deck.push(new Card(i, SuitEnum.spade));
-      deck.push(new Card(i, SuitEnum.heart));
-      deck.push(new Card(i, SuitEnum.diamond));
-      deck.push(new Card(i, SuitEnum.club));
+    for (let number = this._minNumber; number < this._maxNumber; number++) {
+      deck.push(new Card(number, SuitEnum.spade));
+      deck.push(new Card(number, SuitEnum.heart));
+      deck.push(new Card(number, SuitEnum.diamond));
+      deck.push(new Card(number, SuitEnum.club));
     }
     let n = deck.length, t, i;
     while (n) {
