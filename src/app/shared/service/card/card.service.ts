@@ -70,7 +70,15 @@ export class CardService {
    */
   public shuffle(): void {
     const deck = [];
-    for (let number = this._minNumber; number < this._maxNumber; number++) {
+    for (let number = this._minNumber; number <= this._maxNumber; number++) {
+      if (number === 0) {
+        // ジョーカー
+        deck.push(new Card(1, SuitEnum.joker));
+        continue;
+      } else if (number === 1) {
+        // 1はスキップ
+        continue;
+      }
       deck.push(new Card(number, SuitEnum.spade));
       deck.push(new Card(number, SuitEnum.heart));
       deck.push(new Card(number, SuitEnum.diamond));

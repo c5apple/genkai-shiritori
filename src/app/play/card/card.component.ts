@@ -49,7 +49,7 @@ export class CardComponent implements OnInit, OnDestroy {
    * 画像ALTを取得する
    */
   public getImgAlt(): string {
-    if (!this.card) {
+    if (!this.card || this.card.number === 0) {
       return '';
     }
     switch (this.card.mark) {

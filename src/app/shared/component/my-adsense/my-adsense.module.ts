@@ -8,7 +8,7 @@ import { MyAdsenseComponent } from './my-adsense.component';
     CommonModule,
     AdsenseModule.forRoot({
       adClient: 'ca-pub-4398400415874126',
-      adSlot: 5380077834
+      adSlot: 3131872130
     })
   ],
   declarations: [

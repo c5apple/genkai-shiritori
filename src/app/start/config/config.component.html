@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="column column-center">
+    <button class="button-outline" (click)="open()">CONFIG</button>
+  </div>
+</div>
+<form (keyup)="keyup($event)" [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)" *ngIf="isOpen" class="animated fadeIn">
+  <div class="row">
+    <div class="column column-center column-offset-25 column-50">
+      <label>
+        最小文字数
+        <input type="text" formControlName="minNumber" placeholder="2" required maxlength="2">
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('pattern')">半角数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('maxlength')">2文字以内で入力してください</p>
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('lessThan')">最大文字数より少ない数を入力してください</p>
+      </label>
+      <label>
+        最大文字数
+        <input type="text" formControlName="maxNumber" placeholder="11" required maxlength="2">
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('pattern')">半角数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('maxlength')">2文字以内で入力してください</p>
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('lessThan')">最小文字数より大きい数を入力してください</p>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column column-center">
+      <button [disabled]="!form.valid">OK</button>
+    </div>
+  </div>
+</form>
+<div class="backdrop" *ngIf="isOpen" (click)="close()"></div>

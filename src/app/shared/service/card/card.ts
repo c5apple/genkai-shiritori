@@ -23,6 +23,8 @@ export enum SuitEnum {
   diamond = 3,
   /** クラブ */
   club = 4,
+  /** ジョーカー */
+  joker = 0
 }
 
 /**
@@ -37,6 +39,8 @@ export class SuitStrEnum {
   public static diamond = 'd';
   /** クラブ */
   public static club = 'c';
+  /** ジョーカー */
+  public static joker = 'x';
 
   public static text(suit: SuitEnum): string {
     switch (suit) {
@@ -48,7 +52,8 @@ export class SuitStrEnum {
         return SuitStrEnum.diamond;
       case SuitEnum.club:
         return SuitStrEnum.club;
+      default:
+        return SuitStrEnum.joker;
     }
-    return '';
   }
 }

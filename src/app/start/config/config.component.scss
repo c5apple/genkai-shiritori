@@ -1,0 +1,28 @@
+button {
+  min-width: 111px;
+}
+form {
+  position: fixed;
+  padding: 4px;
+  background-color: #FFF;
+  border: 0.1rem solid #d1d1d1;
+  border-radius: 8px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  z-index: 2;
+}
+input {
+  text-align: right;
+}
+.error {
+  color: #C70376;
+}
+.backdrop {
+  position: fixed;
+  left: 0;
+  opacity: 0.5;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 1;
+}
