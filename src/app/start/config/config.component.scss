@@ -2,7 +2,10 @@ button {
   min-width: 111px;
 }
 form {
-  position: fixed;
+  position: relative;
+  margin: 0 auto;
+  max-width: 400px;
+  /* position: fixed; adsenseが邪魔 */
   padding: 4px;
   background-color: #FFF;
   border: 0.1rem solid #d1d1d1;
