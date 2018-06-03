@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PlayModule } from './play/play.module';
 import { StartModule } from './start/start.module';
+import { MyAdsenseModule } from './shared/component/my-adsense/my-adsense.module';
 
 import { PlayService } from './shared/service';
 
@@ -14,7 +15,8 @@ import { PlayService } from './shared/service';
   imports: [
     BrowserModule,
     PlayModule,
-    StartModule
+    StartModule,
+    MyAdsenseModule
   ],
   providers: [PlayService],
   bootstrap: [AppComponent]
