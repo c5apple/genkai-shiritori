@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StartComponent } from './start.component';
 import { StartButtonComponent } from './start-button/start-button.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { StartButtonComponent } from './start-button/start-button.component';
   ],
   declarations: [
     StartComponent,
-    StartButtonComponent
+    StartButtonComponent,
+    ConfigComponent
   ]
 })
 export class StartModule { }
