@@ -10,6 +10,8 @@
         最小文字数
         <input type="text" formControlName="minNumber" placeholder="2" required maxlength="2">
         <p class="error" *ngIf="form.controls['minNumber'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('min')">0以上の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['minNumber'].hasError('max')">13以下の数字を入力してください</p>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('pattern')">半角数字を入力してください</p>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('maxlength')">2文字以内で入力してください</p>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('lessThan')">最大文字数より少ない数を入力してください</p>
@@ -18,6 +20,8 @@
         最大文字数
         <input type="text" formControlName="maxNumber" placeholder="11" required maxlength="2">
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('min')">0以上の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['maxNumber'].hasError('max')">13以下の数字を入力してください</p>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('pattern')">半角数字を入力してください</p>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('maxlength')">2文字以内で入力してください</p>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('lessThan')">最小文字数より大きい数を入力してください</p>

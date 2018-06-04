@@ -12,9 +12,21 @@ export class ConfigForm {
 
   static validators = {
     /** 最小文字数 */
-    minNumber: ['', Validators.compose([Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(2), ConfigForm.lessThan])],
+    minNumber: ['', Validators.compose([
+      Validators.required,
+      Validators.min(0),
+      Validators.max(13),
+      Validators.pattern(/^\d+$/),
+      Validators.maxLength(2),
+      ConfigForm.lessThan])],
     /** 最大文字数 */
-    maxNumber: ['', Validators.compose([Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(2), ConfigForm.lessThan])]
+    maxNumber: ['', Validators.compose([
+      Validators.required,
+      Validators.min(0),
+      Validators.max(13),
+      Validators.pattern(/^\d+$/),
+      Validators.maxLength(2),
+      ConfigForm.lessThan])]
   };
 
   /**
