@@ -42,7 +42,7 @@ export class CardComponent implements OnInit, OnDestroy {
     if (!this.card) {
       return '';
     }
-    return `./assets/img/trump/gif/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.number).slice(-2)}.gif`;
+    return `https://cdn.banana-juice.com/games/img/trump/png/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.number).slice(-2)}.png`;
   }
 
   /**
