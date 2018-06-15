@@ -27,6 +27,33 @@
       background: #f4f5f6;
       border-bottom: .1rem solid #d1d1d1;
     }
+
+    .h4 {
+      font-size: 2.2rem;
+      letter-spacing: -.08rem;
+      line-height: 1.35;
+    }
+
+    .rule {
+      margin: 16px auto;
+      padding: 8px;
+      width: 90%;
+      max-width: 360px;
+      text-align: left;
+      border: 1px dotted #606c76;
+      border-radius: 5px;
+    }
+
+    .rule ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+
+    .rule li:before {
+      content: "★";
+    }
   </style>
 </head>
 
@@ -35,6 +62,19 @@
     <h1 class="h3">限界しりとり</h1>
   </header>
   <gsa-root>Now Loading...</gsa-root>
+  <div class="rule">
+    <h2 class="h4">限界しりとりルール</h2>
+    <ul>
+      <li>持ち時間は15分。
+        <br>※時間設定は変更可能</li>
+      <li>しりとりの「り」から始める。</li>
+      <li>トランプをめくり出た数と同じ文字数の単語を答えないといけない。
+        <br>※トランプの最小数字と最大数字は変更可能</li>
+      <li>Jは11文字以上で答えても良い。</li>
+      <li>パスは1回まですることができる。
+        <br>※回数は変更可能</li>
+    </ul>
+  </div>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     if ('localhost' !== location.hostname) {
