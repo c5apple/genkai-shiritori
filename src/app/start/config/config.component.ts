@@ -39,16 +39,23 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit() {
     // フォーム初期値
+    this.setForm();
+    for (let n = 0; n <= 59; n++) {
+      this.timeLimitSecondOptions.push(n);
+    }
+    this.numbers = this.cardService.numbers;
+  }
+
+  /**
+   * フォーム初期値
+   */
+  setForm(): void {
     this.form.setValue({
       minNumber: this.cardService.minNumber,
       maxNumber: this.cardService.maxNumber,
       timeLimitMinute: Math.floor(this.timerService.timeLimit / 60),
       timeLimitSecond: this.timerService.timeLimit % 60,
     });
-    for (let n = 0; n <= 59; n++) {
-      this.timeLimitSecondOptions.push(n);
-    }
-    this.numbers = this.cardService.numbers;
   }
 
   open(): void {
@@ -73,7 +80,7 @@ export class ConfigComponent implements OnInit {
    * @param form 入力フォーム
    * @param isValid 有効か
    */
-  onSubmit(form: ConfigForm, isValid: boolean) {
+  onSubmit(form: ConfigForm, isValid: boolean): void {
     if (!isValid) {
       return;
     }
@@ -89,5 +96,14 @@ export class ConfigComponent implements OnInit {
 
     // フォームを閉じる
     this.close();
+  }
+
+  /**
+   * リセットボタン
+   */
+  reset(): void {
+    this.cardService.reset();
+    this.timerService.reset();
+    this.setForm();
   }
 }

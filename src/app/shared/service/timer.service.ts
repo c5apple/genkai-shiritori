@@ -37,4 +37,12 @@ export class TimerService {
     // 1秒間隔で経過秒数を返す
     return Observable.interval(1000).map(i => i).share();
   }
+
+  /**
+   * 初期値に戻す
+   */
+  public reset(): void {
+    localStorage.removeItem('timeLimit');
+    this._timeLimit = 900;
+  }
 }

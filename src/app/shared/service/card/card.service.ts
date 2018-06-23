@@ -138,4 +138,14 @@ export class CardService {
     this._discardCount = number;
     this.discardCountBehavior.next(number);
   }
+
+  /**
+   * 初期値に戻す
+   */
+  public reset(): void {
+    localStorage.removeItem('minNumber');
+    localStorage.removeItem('maxNumber');
+    this._minNumber = 2;
+    this._maxNumber = 11;
+  }
 }
