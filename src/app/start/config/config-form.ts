@@ -5,12 +5,32 @@ import { Validators, FormControl, ValidationErrors } from '@angular/forms';
  * 入力フォーム
  */
 export class ConfigForm {
+  /** 持ち時間(分) */
+  timeLimitMinute: number;
+  /** 持ち時間(秒) */
+  timeLimitSecond: number;
   /** 最小文字数 */
   minNumber: number;
   /** 最大文字数 */
   maxNumber: number;
 
   static validators = {
+    /** 持ち時間(分) */
+    timeLimitMinute: ['', Validators.compose([
+      Validators.required,
+      Validators.min(0),
+      Validators.max(15),
+      Validators.pattern(/^\d+$/),
+      Validators.maxLength(2)
+    ])],
+    /** 持ち時間(秒) */
+    timeLimitSecond: ['', Validators.compose([
+      Validators.required,
+      Validators.min(0),
+      Validators.max(59),
+      Validators.pattern(/^\d+$/),
+      Validators.maxLength(2)
+    ])],
     /** 最小文字数 */
     minNumber: ['', Validators.compose([
       Validators.required,

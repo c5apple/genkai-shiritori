@@ -7,6 +7,28 @@
   <div class="row">
     <div class="column column-center column-offset-25 column-50">
       <label>
+        持ち時間（分）
+        <select formControlName="timeLimitMinute" required>
+          <option *ngFor="let n of timeLimitMinuteOptions" [value]="n" [text]="n"></option>
+        </select>
+        <p class="error" *ngIf="form.controls['timeLimitMinute'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitMinute'].hasError('min')">0以上の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitMinute'].hasError('max')">15以下の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitMinute'].hasError('pattern')">半角数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitMinute'].hasError('maxlength')">2文字以内で入力してください</p>
+      </label>
+      <label>
+        持ち時間（秒）
+        <select formControlName="timeLimitSecond" required>
+          <option *ngFor="let n of timeLimitSecondOptions" [value]="n" [text]="n"></option>
+        </select>
+        <p class="error" *ngIf="form.controls['timeLimitSecond'].hasError('required')">入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitSecond'].hasError('min')">0以上の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitSecond'].hasError('max')">59以下の数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitSecond'].hasError('pattern')">半角数字を入力してください</p>
+        <p class="error" *ngIf="form.controls['timeLimitSecond'].hasError('maxlength')">2文字以内で入力してください</p>
+      </label>
+      <label>
         最小文字数
         <select formControlName="minNumber" required>
           <option *ngFor="let n of numbers" [value]="n" [text]="n"></option>

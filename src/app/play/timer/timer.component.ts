@@ -13,9 +13,6 @@ import { TimerService } from '../../shared/service/timer.service';
 })
 export class TimerComponent implements OnInit {
 
-  /** 持ち時間 */
-  timeLimit = 900; // 15分
-
   /** 残り時間 */
   time = 0;
 
@@ -29,7 +26,7 @@ export class TimerComponent implements OnInit {
 
   ngOnInit() {
     // 持ち時間設定
-    this.time = this.timeLimit;
+    this.time = this.timerService.timeLimit;
 
     this.start();
   }

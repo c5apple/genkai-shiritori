@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { CardService } from '../../shared/service';
+import { CardService, TimerService } from '../../shared/service';
 import { ConfigForm } from './config-form';
 
 /**
@@ -20,12 +20,19 @@ export class ConfigComponent implements OnInit {
   /** 入力フォーム */
   form: FormGroup;
 
-  /** オプション配列 */
+  /** 持ち時間オプション配列 */
+  timeLimitMinuteOptions: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+  /** 持ち時間オプション配列 */
+  timeLimitSecondOptions: number[] = [];
+
+  /** 数字オプション配列 */
   numbers: number[];
 
   constructor(
     private formBuilder: FormBuilder,
-    private cardService: CardService
+    private cardService: CardService,
+    private timerService: TimerService
   ) {
     this.form = this.formBuilder.group(ConfigForm.validators);
   }
@@ -35,7 +42,12 @@ export class ConfigComponent implements OnInit {
     this.form.setValue({
       minNumber: this.cardService.minNumber,
       maxNumber: this.cardService.maxNumber,
+      timeLimitMinute: Math.floor(this.timerService.timeLimit / 60),
+      timeLimitSecond: this.timerService.timeLimit % 60,
     });
+    for (let n = 0; n <= 59; n++) {
+      this.timeLimitSecondOptions.push(n);
+    }
     this.numbers = this.cardService.numbers;
   }
 
@@ -67,6 +79,13 @@ export class ConfigComponent implements OnInit {
     }
     this.cardService.minNumber = Number(form.minNumber);
     this.cardService.maxNumber = Number(form.maxNumber);
+
+    // 持ち時間の分と秒を足す
+    const timeLimit: number = Number(form.timeLimitMinute * 60) + Number(form.timeLimitSecond);
+    if (timeLimit <= 0) {
+      return;
+    }
+    this.timerService.timeLimit = timeLimit;
 
     // フォームを閉じる
     this.close();
