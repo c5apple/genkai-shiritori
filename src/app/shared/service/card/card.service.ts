@@ -27,6 +27,9 @@ export class CardService {
   /** 捨て札変更検知 */
   public discardCountBehavior = new BehaviorSubject<number>(0);
 
+  /** 数字配列 */
+  public numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
   constructor() {
   }
 

@@ -33,8 +33,8 @@ export class ConfigForm {
    * 最小文字数が最大文字数以下か
    */
   static lessThan(control: FormControl): ValidationErrors {
-    const minNumber = document.querySelector('input[formcontrolname="minNumber"]') as HTMLInputElement;
-    const maxNumber = document.querySelector('input[formcontrolname="maxNumber"]') as HTMLInputElement;
+    const minNumber = document.querySelector('select[formcontrolname="minNumber"]') as HTMLInputElement;
+    const maxNumber = document.querySelector('select[formcontrolname="maxNumber"]') as HTMLInputElement;
     if (minNumber && maxNumber && minNumber.value && maxNumber.value && Number(minNumber.value) > Number(maxNumber.value)) {
       return { lessThan: true };
     }

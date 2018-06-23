@@ -20,6 +20,9 @@ export class ConfigComponent implements OnInit {
   /** 入力フォーム */
   form: FormGroup;
 
+  /** オプション配列 */
+  numbers: number[];
+
   constructor(
     private formBuilder: FormBuilder,
     private cardService: CardService
@@ -33,6 +36,7 @@ export class ConfigComponent implements OnInit {
       minNumber: this.cardService.minNumber,
       maxNumber: this.cardService.maxNumber,
     });
+    this.numbers = this.cardService.numbers;
   }
 
   open(): void {

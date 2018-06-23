@@ -8,7 +8,9 @@
     <div class="column column-center column-offset-25 column-50">
       <label>
         最小文字数
-        <input type="text" formControlName="minNumber" placeholder="2" required maxlength="2">
+        <select formControlName="minNumber" required>
+          <option *ngFor="let n of numbers" [value]="n" [text]="n"></option>
+        </select>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('required')">入力してください</p>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('min')">0以上の数字を入力してください</p>
         <p class="error" *ngIf="form.controls['minNumber'].hasError('max')">13以下の数字を入力してください</p>
@@ -18,7 +20,9 @@
       </label>
       <label>
         最大文字数
-        <input type="text" formControlName="maxNumber" placeholder="11" required maxlength="2">
+        <select formControlName="maxNumber" required>
+          <option *ngFor="let n of numbers" [value]="n" [text]="n"></option>
+        </select>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('required')">入力してください</p>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('min')">0以上の数字を入力してください</p>
         <p class="error" *ngIf="form.controls['maxNumber'].hasError('max')">13以下の数字を入力してください</p>
