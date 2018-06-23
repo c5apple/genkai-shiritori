@@ -31,6 +31,15 @@ export class CardService {
   public numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
   constructor() {
+    // ローカルストレージから値を取得
+    const minNumber = Number(localStorage.getItem('minNumber'));
+    if (minNumber > 0) {
+      this._minNumber = minNumber;
+    }
+    const maxNumber = Number(localStorage.getItem('maxNumber'));
+    if (maxNumber > 0) {
+      this._maxNumber = maxNumber;
+    }
   }
 
   /**
@@ -45,6 +54,7 @@ export class CardService {
    */
   set minNumber(number: number) {
     this._minNumber = number;
+    localStorage.setItem('minNumber', this._minNumber.toString());
   }
 
   /**
@@ -59,6 +69,7 @@ export class CardService {
    */
   set maxNumber(number: number) {
     this._maxNumber = number;
+    localStorage.setItem('maxNumber', this._maxNumber.toString());
   }
 
   /**
