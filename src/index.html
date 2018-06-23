@@ -38,7 +38,7 @@
       margin: 16px auto;
       padding: 8px;
       width: 90%;
-      max-width: 360px;
+      max-width: 80.0rem;
       text-align: left;
       border: 1px dotted #606c76;
       border-radius: 5px;
@@ -54,6 +54,13 @@
     .rule li:before {
       content: "★";
     }
+
+    .about {
+      margin: 16px auto;
+      width: 90%;
+      max-width: 80.0rem;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -61,19 +68,35 @@
   <header>
     <h1 class="h3">限界しりとり</h1>
   </header>
-  <gsa-root>Now Loading...</gsa-root>
-  <div class="rule">
-    <h2 class="h4">限界しりとりルール</h2>
-    <ul>
-      <li>持ち時間は15分。
-        <br>※時間設定は変更可能</li>
-      <li>しりとりの「り」から始める。</li>
-      <li>トランプをめくり出た数と同じ文字数の単語を答えないといけない。
-        <br>※トランプの最小数字と最大数字は変更可能</li>
-      <li>Jは11文字以上で答えても良い。</li>
-      <li>パスは1回まですることができる。</li>
-    </ul>
-  </div>
+  <main role="main" class="container">
+    <gsa-root>Now Loading...</gsa-root>
+    <div class="rule">
+      <h2 class="h4">限界しりとりルール</h2>
+      <ul>
+        <li>持ち時間は15分。
+          <br>※時間設定は変更可能</li>
+        <li>しりとりの「り」から始める。</li>
+        <li>トランプをめくり出た数と同じ文字数の単語を答えないといけない。
+          <br>※トランプの最小数字と最大数字は変更可能</li>
+        <li>Jは11文字以上で答えても良い。</li>
+        <li>パスは1回まですることができる。</li>
+      </ul>
+    </div>
+    <br>
+    <div class="about">
+      <p>このサイトは限界しりとりで遊ぶことができます。</p>
+      <p>限界しりとりとは、東大王伊沢氏が考案したとても楽しいしりとり遊びです。
+        <br>普通のしりとりにちょっとだけ「縛り」を入れたルールです。
+        <br>※詳しくはルールを見てね。
+      </p>
+      <p>「11文字だとちょっと難しい！」
+        <br>「15分は長いのでサクッと短い時間でやりたい！」
+        <br>というご希望に応えて（？）設定変更ができますので、ぜひ色々なルールで遊んでみてください。
+      </p>
+      <p>一人で ”模擬限界しりとり” として練習しても良いし、二人で協力し合っても良いと思います。</p>
+      <p>反響があれば対戦バージョンも作ります。お待ちください。</p>
+    </div>
+  </main>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     if ('localhost' !== location.hostname) {
