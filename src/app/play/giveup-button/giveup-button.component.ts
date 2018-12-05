@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayService } from '../../shared/service';
 
 /**
  * ギブアップボタンコンポーネント
@@ -11,15 +10,8 @@ import { PlayService } from '../../shared/service';
 })
 export class GiveupButtonComponent implements OnInit {
 
-  constructor(private playService: PlayService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  /**
-   * ギブアップボタンクリック
-   */
-  public giveup(): void {
-    this.playService.end();
   }
 }

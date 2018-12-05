@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PlayService } from './shared/service/play.service';
-
 /**
  * アプリコンポーネント
  */
@@ -12,15 +10,8 @@ import { PlayService } from './shared/service/play.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private playService: PlayService) { }
-
-  /** 開始状態 */
-  isStarted = false;
+  constructor() { }
 
   ngOnInit() {
-    // 開始状態検知
-    this.playService.isStart.subscribe(ret => {
-      this.isStarted = Boolean(ret);
-    });
   }
 }

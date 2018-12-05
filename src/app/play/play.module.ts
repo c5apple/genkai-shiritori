@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AppRoutingModule } from '../app-routing.module';
 import { CardComponent } from './card/card.component';
 import { GiveupButtonComponent } from './giveup-button/giveup-button.component';
 import { PassButtonComponent } from './pass-button/pass-button.component';
@@ -13,7 +14,8 @@ import { CardService, TimerService } from '../shared/service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     PlayComponent
