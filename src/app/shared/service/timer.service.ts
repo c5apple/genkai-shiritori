@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, interval } from 'rxjs';
 
 /**
  * タイマーサービス
@@ -35,7 +35,7 @@ export class TimerService {
 
   public getTimer(): Observable<number> {
     // 1秒間隔で経過秒数を返す
-    return Observable.interval(1000).map(i => i).share();
+    return interval(1000);
   }
 
   /**
