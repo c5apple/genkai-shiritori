@@ -28,8 +28,8 @@ export class TimerService {
   /**
    * 持ち時間を設定する
    */
-  set timeLimit(number: number) {
-    this._timeLimit = number;
+  set timeLimit(num: number) {
+    this._timeLimit = num;
     localStorage.setItem('timeLimit', this._timeLimit.toString());
   }
 

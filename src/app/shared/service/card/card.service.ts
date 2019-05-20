@@ -52,8 +52,8 @@ export class CardService {
   /**
    * 最小数字を設定する
    */
-  set minNumber(number: number) {
-    this._minNumber = number;
+  set minNumber(num: number) {
+    this._minNumber = num;
     localStorage.setItem('minNumber', this._minNumber.toString());
   }
 
@@ -67,8 +67,8 @@ export class CardService {
   /**
    * 最大数字を設定する
    */
-  set maxNumber(number: number) {
-    this._maxNumber = number;
+  set maxNumber(num: number) {
+    this._maxNumber = num;
     localStorage.setItem('maxNumber', this._maxNumber.toString());
   }
 
@@ -83,22 +83,24 @@ export class CardService {
    * 山札をセットする
    */
   public shuffle(): void {
-    const deck = [];
-    for (let number = this._minNumber; number <= this._maxNumber; number++) {
-      if (number === 0) {
+    const deck: Card[] = [];
+    for (let num = this._minNumber; num <= this._maxNumber; num++) {
+      if (num === 0) {
         // ジョーカー
         deck.push(new Card(1, SuitEnum.joker));
         continue;
-      } else if (number === 1) {
+      } else if (num === 1) {
         // 1はスキップ
         continue;
       }
-      deck.push(new Card(number, SuitEnum.spade));
-      deck.push(new Card(number, SuitEnum.heart));
-      deck.push(new Card(number, SuitEnum.diamond));
-      deck.push(new Card(number, SuitEnum.club));
+      deck.push(new Card(num, SuitEnum.spade));
+      deck.push(new Card(num, SuitEnum.heart));
+      deck.push(new Card(num, SuitEnum.diamond));
+      deck.push(new Card(num, SuitEnum.club));
     }
-    let n = deck.length, t, i;
+    let n = deck.length;
+    let t: Card;
+    let i: number;
     while (n) {
       i = Math.floor(Math.random() * n--);
       t = deck[n];
@@ -134,9 +136,9 @@ export class CardService {
   /**
    * 捨て札枚数を設定する
    */
-  set discardCount(number: number) {
-    this._discardCount = number;
-    this.discardCountBehavior.next(number);
+  set discardCount(num: number) {
+    this._discardCount = num;
+    this.discardCountBehavior.next(num);
   }
 
   /**

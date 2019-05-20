@@ -5,10 +5,10 @@ export class Card {
 
   /**
    * カードクラス
-   * @param number 数字
+   * @param num 数字
    * @param mark マーク
    */
-  constructor(public number: number, public mark: SuitEnum) { }
+  constructor(public num: number, public mark: SuitEnum) { }
 }
 
 /**

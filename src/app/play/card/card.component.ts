@@ -42,25 +42,25 @@ export class CardComponent implements OnInit, OnDestroy {
     if (!this.card) {
       return '';
     }
-    return `https://cdn.banana-juice.com/games/img/trump/png/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.number).slice(-2)}.png`;
+    return `https://cdn.banana-juice.com/games/img/trump/png/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.num).slice(-2)}.png`;
   }
 
   /**
    * 画像ALTを取得する
    */
   public getImgAlt(): string {
-    if (!this.card || this.card.number === 0) {
+    if (!this.card || this.card.num === 0) {
       return '';
     }
     switch (this.card.mark) {
       case SuitEnum.spade:
-        return 'スペードの' + this.card.number;
+        return 'スペードの' + this.card.num;
       case SuitEnum.heart:
-        return 'ハートの' + this.card.number;
+        return 'ハートの' + this.card.num;
       case SuitEnum.diamond:
-        return 'ダイアの' + this.card.number;
+        return 'ダイアの' + this.card.num;
       case SuitEnum.club:
-        return 'クラブの' + this.card.number;
+        return 'クラブの' + this.card.num;
     }
     return '';
   }
