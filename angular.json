@@ -138,5 +138,8 @@
       }
     }
   },
-  "defaultProject": "genkai-shiritori-app"
+  "defaultProject": "genkai-shiritori-app",
+  "cli": {
+    "analytics": false
+  }
 }
