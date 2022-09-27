@@ -71,6 +71,6 @@ export class CardComponent implements OnInit, OnDestroy {
    */
   // TODO 型定義
   public onLoadImage($event: any): void {
-    this.animatedClass = 'animated flip';
+    this.animatedClass = 'animate__flipInY';
   }
 }

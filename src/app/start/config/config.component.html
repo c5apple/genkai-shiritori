@@ -3,7 +3,7 @@
     <button class="button-outline" (click)="open()">CONFIG</button>
   </div>
 </div>
-<form (keyup)="keyup($event)" [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)" *ngIf="isOpen" class="animated fadeIn">
+<form (keyup)="keyup($event)" [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)" *ngIf="isOpen" class="animate__fadeIn">
   <div class="row">
     <div class="column column-center column-offset-25 column-50">
       <label>
