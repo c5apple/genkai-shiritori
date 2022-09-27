@@ -17,10 +17,10 @@ export class TimerComponent implements OnInit {
   time = 0;
 
   /** タイマー */
-  timer: Subscription;
+  timer?: Subscription;
 
   /** 停止中か */
-  isStoped: boolean;
+  isStoped: boolean = false;
 
   constructor(private timerService: TimerService) { }
 
@@ -67,7 +67,7 @@ export class TimerComponent implements OnInit {
    * タイマー終了
    */
   public stop() {
-    this.timer.unsubscribe();
+    this.timer?.unsubscribe();
   }
 
   /**

@@ -13,11 +13,11 @@ import { Card, CardService } from '../../shared/service';
 export class PassButtonComponent implements OnInit {
 
   /** パスした回数 */
-  passCount: number;
+  passCount: number = 0;
 
   /** カード */
-  card: Card;
-  cardBehavior: Subscription;
+  card?: Card;
+  cardBehavior?: Subscription;
 
   constructor(private cardService: CardService) { }
 

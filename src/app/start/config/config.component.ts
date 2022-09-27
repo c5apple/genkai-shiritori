@@ -15,7 +15,7 @@ import { ConfigForm } from './config-form';
 export class ConfigComponent implements OnInit {
 
   /** フォーム表示 */
-  isOpen: boolean;
+  isOpen: boolean = false;
 
   /** 入力フォーム */
   form: FormGroup;
@@ -27,7 +27,7 @@ export class ConfigComponent implements OnInit {
   timeLimitSecondOptions: number[] = [];
 
   /** 数字オプション配列 */
-  numbers: number[];
+  numbers: number[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,7 +68,8 @@ export class ConfigComponent implements OnInit {
     this.isOpen = false;
   }
 
-  keyup($event): void {
+  // TODO 型定義
+  keyup($event: any): void {
     if ($event.key === 'Escape') {
       // フォームを閉じる
       this.close();

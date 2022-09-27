@@ -14,7 +14,7 @@ export class TrashComponent implements OnInit, OnDestroy {
 
   /** 捨て札枚数 */
   discardCount = 0;
-  discardCountBehavior: Subscription;
+  discardCountBehavior?: Subscription;
 
   constructor(private cardService: CardService) { }
 
@@ -29,7 +29,7 @@ export class TrashComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.discardCount = 0;
-    this.discardCountBehavior.unsubscribe();
+    this.discardCountBehavior?.unsubscribe();
     this.cardService.discardCount = 0;
   }
 

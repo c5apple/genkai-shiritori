@@ -6,13 +6,13 @@ import { Validators, FormControl, ValidationErrors } from '@angular/forms';
  */
 export class ConfigForm {
   /** 持ち時間(分) */
-  timeLimitMinute: number;
+  timeLimitMinute: number = 0;
   /** 持ち時間(秒) */
-  timeLimitSecond: number;
+  timeLimitSecond: number = 0;
   /** 最小文字数 */
-  minNumber: number;
+  minNumber: number = 0;
   /** 最大文字数 */
-  maxNumber: number;
+  maxNumber: number = 0;
 
   static validators = {
     /** 持ち時間(分) */
@@ -59,6 +59,6 @@ export class ConfigForm {
       return { lessThan: true };
     }
     control.markAsDirty({ onlySelf: false });
-    return null;
+    return {};
   }
 }

@@ -8,7 +8,6 @@ import { Card, SuitEnum } from './card';
  */
 @Injectable()
 export class CardService {
-
   /** 最小数字 */
   private _minNumber = 2;
 
@@ -19,7 +18,7 @@ export class CardService {
   private _deck: Card[] = [];
 
   /** カード変更検知 */
-  public cardBehavior = new BehaviorSubject<Card>(null);
+  public cardBehavior = new BehaviorSubject<Card | undefined>(undefined);
 
   /** 捨て札枚数 */
   private _discardCount = 0;
@@ -113,7 +112,7 @@ export class CardService {
   /**
    * カードを一枚引く
    */
-  public drowCard(): Card {
+  public drowCard(): Card | undefined {
     const card = this._deck.shift();
     this.cardBehavior.next(card);
     return card;
@@ -122,7 +121,7 @@ export class CardService {
   /**
    * カードセット
    */
-  public setCard(card: Card): void {
+  public setCard(card: Card | undefined): void {
     this.cardBehavior.next(card);
   }
 

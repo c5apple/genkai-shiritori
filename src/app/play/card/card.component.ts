@@ -11,28 +11,27 @@ import { CardService, Card, SuitEnum, SuitStrEnum } from '../../shared/service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit, OnDestroy {
-
   /** カードクラス */
-  card: Card;
-  cardBehavior: Subscription;
+  card: Card | undefined;
+  cardBehavior: Subscription | undefined;
 
   /** アニメーション */
   animatedClass = '';
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService) {}
 
   ngOnInit() {
     // カード変更検知
-    this.cardBehavior = this.cardService.cardBehavior.subscribe(card => {
+    this.cardBehavior = this.cardService.cardBehavior.subscribe((card) => {
       this.card = card;
       this.animatedClass = '';
     });
   }
 
   ngOnDestroy(): void {
-    this.card = null;
-    this.cardBehavior.unsubscribe();
-    this.cardService.setCard(null);
+    this.card = undefined;
+    this.cardBehavior?.unsubscribe();
+    this.cardService.setCard(undefined);
   }
 
   /**
@@ -42,7 +41,9 @@ export class CardComponent implements OnInit, OnDestroy {
     if (!this.card) {
       return '';
     }
-    return `https://cdn.banana-juice.com/games/img/trump/png/${SuitStrEnum.text(this.card.mark)}${('0' + this.card.num).slice(-2)}.png`;
+    return `https://cdn.banana-juice.com/games/img/trump/png/${SuitStrEnum.text(
+      this.card.mark
+    )}${('0' + this.card.num).slice(-2)}.png`;
   }
 
   /**
@@ -68,7 +69,8 @@ export class CardComponent implements OnInit, OnDestroy {
   /**
    * 画像ロード時
    */
-  public onLoadImage($event): void {
+  // TODO 型定義
+  public onLoadImage($event: any): void {
     this.animatedClass = 'animated flip';
   }
 }
